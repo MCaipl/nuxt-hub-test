@@ -1,5 +1,10 @@
 <template>
-  <NuxtRouteAnnouncer />
-  <NuxtLoadingIndicator />
-  <NuxtPage />
+  <NuxtLayout>
+    <UApp>
+      <NuxtRouteAnnouncer />
+      <NuxtLoadingIndicator />
+      <NuxtPage />
+    </UApp>
+  </NuxtLayout>
+
 </template>
