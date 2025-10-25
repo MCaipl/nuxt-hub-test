@@ -9,7 +9,6 @@ const talentsWithRelations = await useDrizzle()
   })
   .from(tables.talents)
   .leftJoin(tables.groups, eq(tables.talents.groupId, tables.groups.id))
-  // .leftJoin(tables.itemSlots, eq(tables.items.itemSlot, tables.itemSlots.id))
   .all();
 
   return talentsWithRelations
