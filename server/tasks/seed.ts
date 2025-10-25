@@ -1,3 +1,5 @@
+import { desc } from "drizzle-orm"
+
 export default defineTask({
   meta: {
     name: 'db:seed',
@@ -113,6 +115,33 @@ export default defineTask({
 
     ]
     await useDrizzle().insert(tables.items).values(items)
+
+
+
+    const groups = [
+      {
+        name: 'Death World',
+      },
+      {
+        name: 'Voidborn',
+      }
+    ]
+    await useDrizzle().insert(tables.groups).values(groups)
+
+    const talents = [
+      {
+        name: 'Brutal Hunter',
+        description: 'Increases damage dealt to beasts by 20%.',
+        groupId: 1,
+      },
+      {
+        name: 'Trusty Weapons',
+        description: 'Increases damage dealt to beasts by 20%.',
+        groupId: 1,
+      }
+    ]
+    await useDrizzle().insert(tables.talents).values(talents)
+
     return { result: 'success' }
   }
 })
