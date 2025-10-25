@@ -1,49 +1,31 @@
 <script setup lang="ts">
-import { h, resolveComponent } from 'vue'
 import type { TableColumn } from '@nuxt/ui'
-import type { Row } from '@tanstack/vue-table'
-import { useClipboard } from '@vueuse/core'
 
-const UButton = resolveComponent('UButton')
-const UBadge = resolveComponent('UBadge')
-const UDropdownMenu = resolveComponent('UDropdownMenu')
+const { status, data } = await useLazyFetch('/api/items')
 
-const toast = useToast()
-const { copy } = useClipboard()
-
-type Items = {
-  id: string
-  name: string
-}
-
-const data = ref<Items[]>([
-  {
-    id: 'pm_1N2bY2L3a4b5c6d7e8f9g0h1',
-    name: 'Pneumo Boots',
-  },
-  {
-    id: 'pm_1N2bY2L3a4b5c6d7e8f9g0h1',
-    name: 'Skirmisher Boots',
-  },
-  {
-    id: 'pm_1N2bY2L3a4b5c6d7e8f9g0h1',
-    name: 'Warrior Boots',
-  }
-])
-
-const columns: TableColumn<Items>[] = [
+const columns = [
   {
     accessorKey: 'name',
     header: 'Name'
+  },
+  {
+    accessorKey: 'itemSlotName',
+    header: 'Slot'
+  },
+  {
+    accessorKey: 'actName',
+    header: 'Act'
   }
 ]
+
+
+
 </script>
 
 <template>
   <UTable :data="data" :columns="columns" class="flex-1" >
     <template #name-cell="{ row }">
-      <ULink :to="`/items/${row.original.name}`">{{ row.original.name }}</ULink>
-      
+      <ULink :to="`/items/${row.original.id}`">{{ row.original.name }}</ULink>
     </template>
   </UTable>
 </template>
