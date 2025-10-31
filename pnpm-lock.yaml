@@ -42,6 +42,9 @@ importers:
       '@nuxt/eslint-config':
         specifier: ^1.4.1
         version: 1.4.1(@typescript-eslint/utils@8.34.1(eslint@9.29.0(jiti@2.6.1))(typescript@5.8.3))(@vue/compiler-sfc@3.5.22)(eslint-import-resolver-node@0.3.9)(eslint@9.29.0(jiti@2.6.1))(typescript@5.8.3)
+      '@quentinhsu/biome-config':
+        specifier: ^0.3.3
+        version: 0.3.3
       drizzle-kit:
         specifier: ^0.31.4
         version: 0.31.4
@@ -1837,6 +1840,9 @@ packages:
 
   '@poppinss/exception@1.2.2':
     resolution: {integrity: sha512-m7bpKCD4QMlFCjA/nKTs23fuvoVFoA83brRKmObCUNmi/9tVu8Ve3w4YQAnJu4q3Tjf5fr685HYIC/IA2zHRSg==}
+
+  '@quentinhsu/biome-config@0.3.3':
+    resolution: {integrity: sha512-97sISdBz9tR6XguI9fmt5/sIK+DAH2xGmZLxGXdgOuannNiSUgejbPRepY2NPCLAU35oli1a0wQZEa85PzI1KQ==}
 
   '@rolldown/pluginutils@1.0.0-beta.29':
     resolution: {integrity: sha512-NIJgOsMjbxAXvoGq/X0gD7VPMQ8j9g0BiDaNjVNVjvl+iKXxL3Jre0v31RmBYeLEmkbj2s02v8vFTbUXi5XS2Q==}
@@ -8072,6 +8078,8 @@ snapshots:
       supports-color: 10.0.0
 
   '@poppinss/exception@1.2.2': {}
+
+  '@quentinhsu/biome-config@0.3.3': {}
 
   '@rolldown/pluginutils@1.0.0-beta.29': {}
 

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-const route = useRoute();
+  const route = useRoute();
 
-const { status, data } = await useLazyFetch(`/api/items/${route.params.id}`);
+  const { status, data } = await useLazyFetch(`/api/items/${route.params.id}`);
 </script>
 <template>
   <UPage>
