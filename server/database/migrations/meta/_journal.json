@@ -1,27 +1,27 @@
 {
-  "version": "7",
-  "dialect": "sqlite",
-  "entries": [
-    {
-      "idx": 0,
-      "version": "6",
-      "when": 1756486608370,
-      "tag": "0000_cool_red_shift",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "6",
-      "when": 1756486629795,
-      "tag": "0001_bumpy_black_crow",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "6",
-      "when": 1761412014802,
-      "tag": "0002_clumsy_jazinda",
-      "breakpoints": true
-    }
-  ]
+	"version": "7",
+	"dialect": "sqlite",
+	"entries": [
+		{
+			"idx": 0,
+			"version": "6",
+			"when": 1756486608370,
+			"tag": "0000_cool_red_shift",
+			"breakpoints": true
+		},
+		{
+			"idx": 1,
+			"version": "6",
+			"when": 1756486629795,
+			"tag": "0001_bumpy_black_crow",
+			"breakpoints": true
+		},
+		{
+			"idx": 2,
+			"version": "6",
+			"when": 1761412014802,
+			"tag": "0002_clumsy_jazinda",
+			"breakpoints": true
+		}
+	]
 }

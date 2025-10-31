@@ -1,32 +1,33 @@
 <script lang="ts" setup>
+const route = useRoute();
 
-const route = useRoute()
-
-const { status, data } = await useLazyFetch(`/api/items/${route.params.id}`)
-
-
-
+const { status, data } = await useLazyFetch(`/api/items/${route.params.id}`);
 </script>
 <template>
-  <UCard>
-    <template #header>
-      <div class="flex flex-col gap-2">
-        <div class="text-xl font-medium">Pneumo Boots</div>
-        <div class="flex gap-2">
-          <UBadge size="lg" color="primary" variant="subtle">{{data?.itemSlotName}}</UBadge>
-          <UBadge size="lg" color="success" variant="subtle">{{data?.actName}}</UBadge>
-          <UBadge size="lg" color="secondary" variant="subtle">Rykad Minoris</UBadge>
-        </div>
-      </div>
+  <UPage>
+    <UPageHeader :title="data?.name" :headline="data?.itemSlotName"/>
+    <UPageBody>
+
+
+
+
+        Builds
+        <UPageColumns>
+
+            <UPageCard v-for="i in 7" :key="i"
+                variant="outline"
+                title="Cloudflare's Workers LaunchPad"
+                description="NuxtHub is part of the Cloudflare's Workers Launchpad Cohort to make sure you get a first-class experience on top of Cloudflare's network."
+            />
+
+        </UPageColumns>
+
+
+    </UPageBody>
+
+    <template #right>
+
     </template>
-
-    <div class="space-y-4">
-      <p>{{ data?.description }}</p>
-    </div>
-
-    <template #footer>
-
-    </template>
-  </UCard>
+  </UPage>
 </template>
 
