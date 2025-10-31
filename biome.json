@@ -5,7 +5,6 @@
     "clientKind": "git",
     "useIgnoreFile": true
   },
-  "extends": ["@quentinhsu/biome-config/nuxt"],
   "files": {
     "ignoreUnknown": false
   },
