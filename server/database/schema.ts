@@ -52,5 +52,12 @@ export const companions = sqliteTable("companions", {
   homeworldId: integer("homeworld_id")
     .notNull()
     .references(() => groups.id),
+  actId: integer("act_id")
+    .notNull()
+    .references(() => acts.id),
+  basicArchetypeId: integer("basic_archetype_id")
+    .notNull()
+    .references(() => groups.id),
+  starterLevel: integer("starter_level").notNull(),
   createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
 });

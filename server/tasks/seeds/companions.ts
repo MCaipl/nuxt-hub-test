@@ -5,6 +5,9 @@ export default async function seedCompanions(db: any) {
       smallPortait: "abelard.jpg",
       originId: 5,
       homeworldId: 18,
+      actId: 1,
+      starterLevel: 2,
+      basicArchetypeId: 28,
       createdAt: new Date(),
     },
     {
@@ -12,6 +15,9 @@ export default async function seedCompanions(db: any) {
       smallPortait: "idira.jpg",
       originId: 16,
       homeworldId: 23,
+      actId: 1,
+      starterLevel: 2,
+      basicArchetypeId: 30,
       createdAt: new Date(),
     },
     {
@@ -19,6 +25,9 @@ export default async function seedCompanions(db: any) {
       smallPortait: "pasqal.jpg",
       originId: 15,
       homeworldId: 19,
+      actId: 2,
+      starterLevel: 2,
+      basicArchetypeId: 30,
       createdAt: new Date(),
     },
     {
@@ -26,6 +35,9 @@ export default async function seedCompanions(db: any) {
       smallPortait: "cassia.jpg",
       originId: 9,
       homeworldId: 24,
+      actId: 2,
+      starterLevel: 2,
+      basicArchetypeId: 31,
       createdAt: new Date(),
     },
     {
@@ -33,6 +45,9 @@ export default async function seedCompanions(db: any) {
       smallPortait: "yrliet.jpg",
       originId: 12,
       homeworldId: 25,
+      actId: 3,
+      starterLevel: 2,
+      basicArchetypeId: 28,
       createdAt: new Date(),
     },
     {
@@ -40,6 +55,9 @@ export default async function seedCompanions(db: any) {
       smallPortait: "argenta.jpg",
       originId: 10,
       homeworldId: 18,
+      actId: 1,
+      starterLevel: 2,
+      basicArchetypeId: 31,
       createdAt: new Date(),
     },
     {
@@ -47,6 +65,9 @@ export default async function seedCompanions(db: any) {
       smallPortait: "jae.jpg",
       originId: 13,
       homeworldId: 18,
+      actId: 3,
+      starterLevel: 2,
+      basicArchetypeId: 28,
       createdAt: new Date(),
     },
     {
@@ -54,6 +75,9 @@ export default async function seedCompanions(db: any) {
       smallPortait: "heinrix.jpg",
       originId: 7,
       homeworldId: 18,
+      actId: 2,
+      starterLevel: 2,
+      basicArchetypeId: 28,
       createdAt: new Date(),
     },
     {
@@ -61,6 +85,9 @@ export default async function seedCompanions(db: any) {
       smallPortait: "ulfar.jpg",
       originId: 11,
       homeworldId: 26,
+      actId: 4,
+      starterLevel: 2,
+      basicArchetypeId: 28,
       createdAt: new Date(),
     },
     {
@@ -68,6 +95,9 @@ export default async function seedCompanions(db: any) {
       smallPortait: "marazhai.jpg",
       originId: 14,
       homeworldId: 27,
+      actId: 4,
+      starterLevel: 2,
+      basicArchetypeId: 28,
       createdAt: new Date(),
     },
     {
@@ -75,6 +105,9 @@ export default async function seedCompanions(db: any) {
       smallPortait: "kibellah.jpg",
       originId: 17,
       homeworldId: 22,
+      actId: 2,
+      starterLevel: 2,
+      basicArchetypeId: 28,
       createdAt: new Date(),
     },
     {
@@ -82,6 +115,9 @@ export default async function seedCompanions(db: any) {
       smallPortait: "solomorne.jpg",
       originId: 8,
       homeworldId: 18,
+      actId: 3,
+      starterLevel: 2,
+      basicArchetypeId: 28,
       createdAt: new Date(),
     },
     {
@@ -89,6 +125,9 @@ export default async function seedCompanions(db: any) {
       smallPortait: "incendia.jpg",
       originId: 4,
       homeworldId: 18,
+      actId: 1,
+      starterLevel: 2,
+      basicArchetypeId: 28,
       createdAt: new Date(),
     },
     {
@@ -96,9 +135,18 @@ export default async function seedCompanions(db: any) {
       smallPortait: "calligos.jpg",
       originId: 6,
       homeworldId: 18,
+      actId: 1,
+      starterLevel: 2,
+      basicArchetypeId: 28,
       createdAt: new Date(),
     }
   ];
 
-  await db.insert(tables.companions).values(companions);
+  const batchSize = 5;
+  for (let i = 0; i < companions.length; i += batchSize) {
+    const batch = companions.slice(i, i + batchSize);
+    if (batch.length) {
+      await db.insert(tables.companions).values(batch);
+    }
+  }
 }

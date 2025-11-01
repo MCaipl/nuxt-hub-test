@@ -1,0 +1,1 @@
+ALTER TABLE `companions` ADD `basic_archetype_id` integer NOT NULL REFERENCES groups(id);

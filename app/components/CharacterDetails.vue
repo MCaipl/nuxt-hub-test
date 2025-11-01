@@ -6,7 +6,7 @@ const {data = [], image = 'fff'} = defineProps<{data: unknown, image: string }>(
 <template>
  <UPageCard
     variant="soft"
-    class="p"
+    class="self-start"
   >
     <img :src="`/img/${image}`" class="object-cover aspect-[1/1.5] rounded-2xl overflow-hidden" />
     <dl class="grid grid-cols-2 gap-x-6 gap-y-4 ">
