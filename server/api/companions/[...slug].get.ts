@@ -1,13 +1,21 @@
+import { alias } from 'drizzle-orm/sqlite-core';
+
 export default eventHandler(async ({ context }) => {
+  const groupsOrigin = alias(tables.groups, 'origin');
+  const groupsHomeworld = alias(tables.groups, 'homeworld');
+
   const companionsWithRelations = await useDrizzle()
     .select({
-      id: tables.companionss.id,
-      name: tables.companionss.name,
+      id: tables.companions.id,
+      name: tables.companions.name,
+      smallPortait: tables.companions.smallPortait,
+      originName: groupsOrigin.name,
+      homeworldName: groupsHomeworld.name,
     })
-    .from(tables.companionss)
-    // .leftJoin(tables.acts, eq(tables.companionss.act, tables.acts.id))
-    // .leftJoin(tables.companionsslots, eq(tables.companionss.companionsslot, tables.companionsslots.id))
-    // .where(eq(tables.companionss.id, context.params.slug))
+    .from(tables.companions)
+    .leftJoin(groupsOrigin, eq(tables.companions.originId, groupsOrigin.id))
+    .leftJoin(groupsHomeworld, eq(tables.companions.homeworldId, groupsHomeworld.id))
+    .where(eq(tables.companions.id, context.params.slug))
     .get();
 
   return companionsWithRelations;

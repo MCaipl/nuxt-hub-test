@@ -6,14 +6,14 @@ const { status, data } = await useLazyFetch("/api/companions");
 const columns = [
   {
     accessorKey: "name",
-    header: "Name",
+    header: "Character",
   },
   {
-    accessorKey: "origin",
+    accessorKey: "originName",
     header: "Origin",
   },
   {
-    accessorKey: "homeworld",
+    accessorKey: "homeworldName",
     header: "Homeworld",
   },
 ];

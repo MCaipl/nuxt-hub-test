@@ -28,6 +28,7 @@ export const items = sqliteTable("items", {
 export const groups = sqliteTable("groups", {
   id: integer("id").primaryKey().notNull(),
   name: text("name").notNull(),
+  createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
 });
 
 export const talents = sqliteTable("talents", {
@@ -37,6 +38,7 @@ export const talents = sqliteTable("talents", {
     .references(() => groups.id),
   name: text("name").notNull(),
   description: text("description").default(""),
+  createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
 });
 
 
@@ -47,4 +49,8 @@ export const companions = sqliteTable("companions", {
   originId: integer("origin_id")
     .notNull()
     .references(() => groups.id),
+  homeworldId: integer("homeworld_id")
+    .notNull()
+    .references(() => groups.id),
+  createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
 });

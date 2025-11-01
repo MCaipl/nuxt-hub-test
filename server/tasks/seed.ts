@@ -1,4 +1,5 @@
-
+import seedCompanions from "./seeds/companions";
+import seedGroups from "./seeds/groups";
 
 export default defineTask({
   meta: {
@@ -185,132 +186,29 @@ const drizzle = useDrizzle() as unknown as any;
     ];
     await useDrizzle().insert(tables.items).values(items);
 
-    const groups = [
-      {
-        name: "Astra Militarum Commander",
-      },
-      {
-        name: "Commissar",
-      },
-      {
-        name: "Crime Lord",
-      },
-      {
-        name: "Ministorum Priest",
-      },
-      {
-        name: "Navy Officer",
-      },
-      {
-        name: "Noble",
-      },
-      {
-        name: "Sanctioned Psyker",
-      },
-      {
-        name: "Arbitrator",
-      },
-      {
-        name: "Navigator",
-      },
-      {
-        name: "Adepta Sororitas",
-      },
-      {
-        name: "Adeptus Astartes",
-      },
-      {
-        name: "Asuryani Outcast",
-      },
-      {
-        name: "Cold Trader",
-      },
-      {
-        name: "Kabalite Dracon",
-      },
-      {
-        name: "Tech-Priest",
-      },
-      {
-        name: "Unsanctioned Psyker",
-      },
 
-    ];
-    await useDrizzle().insert(tables.groups).values(groups);
+    await seedGroups(useDrizzle());
+
+    await seedCompanions(useDrizzle());
+
 
     const talents = [
       {
         name: "Brutal Hunter",
         description: "Increases damage dealt to beasts by 20%.",
         groupId: 1,
+        createdAt: new Date(),
       },
       {
         name: "Trusty Weapons",
         description: "Increases damage dealt to beasts by 20%.",
         groupId: 1,
+        createdAt: new Date(),
       },
     ];
     await useDrizzle().insert(tables.talents).values(talents);
 
 
-    const companions = [
-      {
-        name: "Abelard Werserian",
-        smallPortait: "abelard.jpg",
-        originId: 5
-      },
-      {
-        name: "Idira Tlass",
-        smallPortait: "idira.jpg",
-        originId: 16
-      },
-      {
-        name: "Pasqal Haneumann",
-        smallPortait: "pasqal.jpg",
-        originId: 15
-      },
-      {
-        name: "Cassia Orsellio",
-        smallPortait: "cassia.jpg",
-        originId: 9
-      },
-      {
-        name: "Yrliet Lanaevyss",
-        smallPortait: "yrliet.jpg",
-        originId: 12
-      },
-      {
-        name: "Sister Argenta",
-        smallPortait: "argenta.jpg",
-        originId: 10
-      },
-      {
-        name: "Jae Heydari",
-        smallPortait: "jae.jpg",
-        originId: 13
-      },
-      {
-        name: "Heinrix van Calox",
-        smallPortait: "heinrix.jpg",
-        originId: 7
-      },
-      {
-        name: "Ulfar",
-        smallPortait: "ulfar.jpg",
-        originId: 11
-      },
-      {
-        name: "Kibellah",
-        smallPortait: "kibellah.jpg",
-        originId: 1
-      },
-      {
-        name: "Solomorne Anthar",
-        smallPortait: "solomorne.jpg",
-        originId: 8
-      }
-    ];
-    await useDrizzle().insert(tables.companions).values(companions);
 
 
 

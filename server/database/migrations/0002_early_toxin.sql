@@ -1,0 +1,1 @@
+ALTER TABLE `companions` ADD `homeworld_id` integer NOT NULL REFERENCES groups(id);
