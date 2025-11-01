@@ -38,3 +38,13 @@ export const talents = sqliteTable("talents", {
   name: text("name").notNull(),
   description: text("description").default(""),
 });
+
+
+export const companions = sqliteTable("companions", {
+  id: integer("id").primaryKey().notNull(),
+  name: text("name").notNull(),
+  smallPortait: text("smallPortait").notNull(),
+  originId: integer("origin_id")
+    .notNull()
+    .references(() => groups.id),
+});
