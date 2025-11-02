@@ -241,9 +241,27 @@ const drizzle = useDrizzle() as unknown as any;
       },
       {
         name: "Fire Princess",
-        description: "Ability focused build",
+        description: `Warp buffer does not prevent instant death daemon summon unique to unsanctioned psyker. Always a Chance of instant death unlike sanctioned psykers.`,
         createdAt: new Date(),
         companionId: 2,
+      },
+      {
+        name: "Lightning Buff Queen",
+        description: `Warp buffer does not prevent instant death daemon summon unique to unsanctioned psyker. Always a Chance of instant death unlike sanctioned psykers. Using Arc rifle because it is fun	`,
+        createdAt: new Date(),
+        companionId: 2,
+      },
+      {
+        name: "Rightous Fury",
+        description: "The damage from litany of hatred and tenets of retribution is insane",
+        createdAt: new Date(),
+        companionId: 6,
+      },
+      {
+        name: "Swift Justice",
+        description: "Variant for those that don’t want to use heavy guns.",
+        createdAt: new Date(),
+        companionId: 6,
       },
     ]);
 

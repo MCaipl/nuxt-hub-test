@@ -7,7 +7,7 @@ export default async function seedCompanions(db: any) {
       homeworldId: 18,
       actId: 1,
       starterLevel: 2,
-      basicArchetypeId: 28,
+      basicArchetypeId: 29,
       createdAt: new Date(),
     },
     {
@@ -17,7 +17,7 @@ export default async function seedCompanions(db: any) {
       homeworldId: 23,
       actId: 1,
       starterLevel: 2,
-      basicArchetypeId: 30,
+      basicArchetypeId: 31,
       createdAt: new Date(),
     },
     {
@@ -27,7 +27,7 @@ export default async function seedCompanions(db: any) {
       homeworldId: 19,
       actId: 2,
       starterLevel: 2,
-      basicArchetypeId: 30,
+      basicArchetypeId: 31,
       createdAt: new Date(),
     },
     {
@@ -36,8 +36,8 @@ export default async function seedCompanions(db: any) {
       originId: 9,
       homeworldId: 24,
       actId: 2,
-      starterLevel: 2,
-      basicArchetypeId: 31,
+      starterLevel: 4,
+      basicArchetypeId: 30,
       createdAt: new Date(),
     },
     {
@@ -46,8 +46,8 @@ export default async function seedCompanions(db: any) {
       originId: 12,
       homeworldId: 25,
       actId: 3,
-      starterLevel: 2,
-      basicArchetypeId: 28,
+      starterLevel: 15,
+      basicArchetypeId: 31,
       createdAt: new Date(),
     },
     {
@@ -57,7 +57,7 @@ export default async function seedCompanions(db: any) {
       homeworldId: 18,
       actId: 1,
       starterLevel: 2,
-      basicArchetypeId: 31,
+      basicArchetypeId: 32,
       createdAt: new Date(),
     },
     {
@@ -67,7 +67,7 @@ export default async function seedCompanions(db: any) {
       homeworldId: 18,
       actId: 3,
       starterLevel: 2,
-      basicArchetypeId: 28,
+      basicArchetypeId: 30,
       createdAt: new Date(),
     },
     {
@@ -76,8 +76,8 @@ export default async function seedCompanions(db: any) {
       originId: 7,
       homeworldId: 18,
       actId: 2,
-      starterLevel: 2,
-      basicArchetypeId: 28,
+      starterLevel: 4,
+      basicArchetypeId: 29,
       createdAt: new Date(),
     },
     {
@@ -87,7 +87,7 @@ export default async function seedCompanions(db: any) {
       homeworldId: 26,
       actId: 4,
       starterLevel: 2,
-      basicArchetypeId: 28,
+      basicArchetypeId: 32,
       createdAt: new Date(),
     },
     {
@@ -97,7 +97,7 @@ export default async function seedCompanions(db: any) {
       homeworldId: 27,
       actId: 4,
       starterLevel: 2,
-      basicArchetypeId: 28,
+      basicArchetypeId: 29,
       createdAt: new Date(),
     },
     {
@@ -107,7 +107,7 @@ export default async function seedCompanions(db: any) {
       homeworldId: 22,
       actId: 2,
       starterLevel: 2,
-      basicArchetypeId: 28,
+      basicArchetypeId: 33,
       createdAt: new Date(),
     },
     {
@@ -125,7 +125,7 @@ export default async function seedCompanions(db: any) {
       smallPortait: "incendia.jpg",
       originId: 4,
       homeworldId: 18,
-      actId: 1,
+      actId: 5,
       starterLevel: 2,
       basicArchetypeId: 28,
       createdAt: new Date(),
@@ -135,8 +135,8 @@ export default async function seedCompanions(db: any) {
       smallPortait: "calligos.jpg",
       originId: 6,
       homeworldId: 18,
-      actId: 1,
-      starterLevel: 2,
+      actId: 5,
+      starterLevel: 5,
       basicArchetypeId: 28,
       createdAt: new Date(),
     }

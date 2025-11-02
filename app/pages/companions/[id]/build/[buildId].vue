@@ -14,17 +14,14 @@ const items = computed(() =>[
     to: `/companions/${route.params.id}`
   },
   {
-
-    label: 'Builds',
-  },
-  {
-    label: 'Build Details',
+    label: buildData?.value?.name || 'Build Detail',
     to: `/companions/${route.params.id}/build/${route.params.buildId}`
   }
 ])
 
 
-const { status, data } = await useLazyFetch(`/api/companions/${route.params.id}`);
+const { data } = await useLazyFetch(`/api/companions/${route.params.id}`);
+const { data: buildData } = await useLazyFetch(`/api/builds/${route.params.buildId}`);
 
 const stats = computed(() => [
   { field: 'Origin', value: data.value?.originName || '' },
@@ -79,7 +76,7 @@ const active = ref('0')
 <template>
   <UPage>
     <UBreadcrumb :items="items" />
-    <UPageHeader :title="data?.name" :headline="data?.originName" />
+    <UPageHeader :title="data?.name" :headline="data?.originName" :description="buildData?.description"/>
     <UPageBody>
 
       <div class="sm:grid sm:grid-cols-3 gap-6">
@@ -88,6 +85,7 @@ const active = ref('0')
 
         <div class="sm:col-span-2 ">
           <h2 class="relative text-2xl text-highlighted font-bold mt-2 mb-6">Build Breakdown</h2>
+
           <UAccordion :items="itemss" v-model="active" >
             <template #body="{ item }">
               <table class="w-full table-auto ">

@@ -15,6 +15,11 @@ const items = ref<NavigationMenuItem[]>([
     label: "Talents",
     to: "/talents",
   },
+  {
+    label: "Groups",
+    to: "/groups",
+  },
+
 
   // {
   //   label: "Guide",

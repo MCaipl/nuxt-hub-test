@@ -31,33 +31,6 @@ const stats = computed(() => [
 ]);
 
 
-const builds = ref([
-  {
-    name: 'Navy Breacher',
-    baseArchetype: 'Soldier',
-    advancedArchetype: 'Arch-Militant',
-  },
-  {
-    name: 'Defender',
-    baseArchetype: 'Soldier',
-    advancedArchetype: 'Vanguard',
-  },
-  {
-    name: 'Fire Princess',
-    baseArchetype: 'Operative',
-    advancedArchetype: 'Overseer',
-  },
-  {
-    name: 'Lightning Buff Queen',
-    baseArchetype: 'Operative',
-    advancedArchetype: 'Overseer',
-  },
-  {
-    name: 'Rightous Fury',
-    baseArchetype: 'Soldier',
-    advancedArchetype: 'Arch-Militant',
-  },
-]);
 
 </script>
 <template>
@@ -73,26 +46,30 @@ const builds = ref([
         <div class="col-span-2 ">
           <h2 class="relative text-2xl text-highlighted font-bold mt-2 mb-6">Builds</h2>
 
-          <pre>x{{ buildsData }}x</pre>
-
-          <UPageList divided >
+          <UPageList divided v-if="buildsData && buildsData.length > 0">
             <UPageCard
-              v-for="(build, index) in builds"
+              v-for="(build, index) in buildsData"
               :key="index"
               variant="soft"
               spotlight
               spotlight-color="primary"
               class="mb-4"
-              :to="`/companions/${route.params.id}/build/${index + 1}`"
+              :to="`/companions/${route.params.id}/build/${build.id}`"
             >
               <template #body>
                 <div>
                   <p class="font-medium text-highlighted text-base">{{ build.name }}</p>
-                  <p class="text-muted text-sm">{{build.baseArchetype}} - {{build.advancedArchetype}} - Exemplar</p>
+                  <p class="text-muted text-sm">{{ build.description }}</p>
                 </div>
               </template>
             </UPageCard>
           </UPageList>
+          <UEmpty
+              v-else
+              icon="i-lucide-file"
+              title="No Builds found"
+              description="No builds have been created for this companion yet."
+            />
         </div>
       </div>
     </UPageBody>
