@@ -86,6 +86,8 @@ const active = ref('0')
         <div class="sm:col-span-2 ">
           <h2 class="relative text-2xl text-highlighted font-bold mt-2 mb-6">Build Breakdown</h2>
 
+          <pre>{{ buildData }}</pre>
+
           <UAccordion :items="itemss" v-model="active" >
             <template #body="{ item }">
               <table class="w-full table-auto ">

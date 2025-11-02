@@ -51,6 +51,8 @@ const drizzle = useDrizzle() as unknown as any;
 
     // Delete rows (dependents first) to avoid FK issues, then remove sqlite_sequence entries and VACUUM.
 
+
+    await useDrizzle().delete(tables.buildLevels).execute();
     await useDrizzle().delete(tables.builds).execute();
     await useDrizzle().delete(tables.items).execute();
     await useDrizzle().delete(tables.companions).execute();
@@ -265,7 +267,30 @@ const drizzle = useDrizzle() as unknown as any;
       },
     ]);
 
-
+    await useDrizzle().insert(tables.buildLevels).values([
+      {
+        buildId: 1,
+        level: 1,
+        archeTypeId: 29,
+        talentId: 1,
+        createdAt: new Date(),
+      },
+      {
+        buildId: 1,
+        level: 2,
+        archeTypeId: 29,
+        talentId: 2,
+        createdAt: new Date(),
+      },
+      {
+        buildId: 1,
+        level: 3,
+        archeTypeId: 29,
+        talentId: 3,
+        additonalTalentId: 4,
+        createdAt: new Date(),
+      }
+  ]);
 
 
 

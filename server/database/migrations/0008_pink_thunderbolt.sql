@@ -1,0 +1,1 @@
+ALTER TABLE `build_levels` ADD `archetype_id` integer NOT NULL REFERENCES groups(id);

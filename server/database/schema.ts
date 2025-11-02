@@ -88,10 +88,13 @@ export const buildLevels = sqliteTable("build_levels", {
     .notNull()
     .references(() => builds.id),
   level: integer("level").notNull(),
+  archeTypeId: integer("archetype_id")
+    .notNull()
+    .references(() => groups.id),
   talentId: integer("talent_id")
     .notNull()
     .references(() => talents.id),
-  additonalTalentId: integer("talent_id")
+  additonalTalentId: integer("additional_talent_id")
     .references(() => talents.id),
   createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
 });
