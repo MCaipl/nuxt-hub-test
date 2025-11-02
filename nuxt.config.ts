@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
 
   // https://nuxt.com/modules
-  modules: ["@nuxthub/core", "@nuxt/eslint", "@nuxt/ui"],
+  modules: ["@nuxthub/core",  "@nuxt/ui"],
 
   // https://devtools.nuxt.com
   devtools: { enabled: true },
@@ -27,16 +27,6 @@ export default defineNuxtConfig({
   nitro: {
     experimental: {
       tasks: true,
-    },
-  },
-
-  // Development config
-  eslint: {
-    config: {
-      stylistic: {
-        quotes: "single",
-        commaDangle: "never",
-      },
     },
   },
 });

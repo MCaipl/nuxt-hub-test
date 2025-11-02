@@ -8,25 +8,34 @@ const items = ref<NavigationMenuItem[]>([
     to: "/",
   },
   {
-    label: "Guide",
-    children: [
-      {
-        label: "Items",
-        icon: "i-lucide-house",
-        to: "/items",
-      },
-      {
-        label: "Builds",
-        icon: "i-lucide-house",
-        to: "/builds",
-      },
-    ],
+    label: "Companions",
+    to: "/companions",
   },
   {
-    label: "Help",
-    icon: "i-lucide-circle-help",
-    disabled: true,
+    label: "Talents",
+    to: "/talents",
   },
+
+  // {
+  //   label: "Guide",
+  //   children: [
+  //     {
+  //       label: "Items",
+  //       icon: "i-lucide-house",
+  //       to: "/items",
+  //     },
+  //     {
+  //       label: "Builds",
+  //       icon: "i-lucide-house",
+  //       to: "/builds",
+  //     },
+  //   ],
+  // },
+  // {
+  //   label: "Help",
+  //   icon: "i-lucide-circle-help",
+  //   disabled: true,
+  // },
 ]);
 </script>
 

@@ -50,6 +50,8 @@ const drizzle = useDrizzle() as unknown as any;
     }
 
     // Delete rows (dependents first) to avoid FK issues, then remove sqlite_sequence entries and VACUUM.
+
+    await useDrizzle().delete(tables.builds).execute();
     await useDrizzle().delete(tables.items).execute();
     await useDrizzle().delete(tables.companions).execute();
     await useDrizzle().delete(tables.talents).execute();
@@ -223,6 +225,27 @@ const drizzle = useDrizzle() as unknown as any;
     await seedCompanions(useDrizzle());
     await seedTalents(useDrizzle());
 
+
+    await useDrizzle().insert(tables.builds).values([
+      {
+        name: "Navy Breacher",
+        description: "Best ",
+        createdAt: new Date(),
+        companionId: 1,
+      },
+      {
+        name: "Defender",
+        description: "Ability focused build",
+        createdAt: new Date(),
+        companionId: 1,
+      },
+      {
+        name: "Fire Princess",
+        description: "Ability focused build",
+        createdAt: new Date(),
+        companionId: 2,
+      },
+    ]);
 
 
 

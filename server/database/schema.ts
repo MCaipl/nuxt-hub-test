@@ -70,3 +70,28 @@ export const companions = sqliteTable("companions", {
   starterLevel: integer("starter_level").notNull(),
   createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
 });
+
+
+export const builds = sqliteTable("builds", {
+  id: integer("id").primaryKey().notNull(),
+  name: text("name").notNull(),
+  description: text("description").default(""),
+  companionId: integer("companion_id")
+    .notNull()
+    .references(() => companions.id),
+  createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
+});
+
+export const buildLevels = sqliteTable("build_levels", {
+  id: integer("id").primaryKey().notNull(),
+  buildId: integer("build_id")
+    .notNull()
+    .references(() => builds.id),
+  level: integer("level").notNull(),
+  talentId: integer("talent_id")
+    .notNull()
+    .references(() => talents.id),
+  additonalTalentId: integer("talent_id")
+    .references(() => talents.id),
+  createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
+});

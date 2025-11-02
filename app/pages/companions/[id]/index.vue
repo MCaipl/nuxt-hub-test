@@ -14,7 +14,13 @@ const items = computed(() =>[
 ])
 
 
-const { status, data } = await useLazyFetch(`/api/companions/${route.params.id}`);
+const { data } = await useLazyFetch(`/api/companions/${route.params.id}`);
+const { data: buildsData } = await useLazyFetch(`/api/builds?companionId`, {
+  params: {
+    companionId: route.params.id
+  }
+});
+
 
 const stats = computed(() => [
   { field: 'Origin', value: data.value?.originName || '' },
@@ -66,6 +72,8 @@ const builds = ref([
 
         <div class="col-span-2 ">
           <h2 class="relative text-2xl text-highlighted font-bold mt-2 mb-6">Builds</h2>
+
+          <pre>x{{ buildsData }}x</pre>
 
           <UPageList divided >
             <UPageCard
