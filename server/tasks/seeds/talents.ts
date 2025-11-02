@@ -54,6 +54,52 @@ If the target attacks the Warrior during this round, the Warrior gains +1 AP (on
         talentTypeId: 1,
         createdAt: new Date(),
       },
+      {
+        name: "Air of Authority",
+        description: `The Officer increases an ally's Resolve by a Resolve until the end of combat.
+If the target is under the effect of Voice of Command, they will start their next turn with 1 additional action point.`,
+        groupId: 30,
+        talentTypeId: 1,
+        createdAt: new Date(),
+      },
+      {
+        name: "Get back in the fight!",
+        description: `The Officer encourages a target ally to immediately recover from burning, bleeding, toxin and stun effects.
+If the target is under Voice of Command effect, it gains +2×(Officer's WP bonus) temporary Wounds.`,
+        groupId: 30,
+        talentTypeId: 1,
+        createdAt: new Date(),
+      },
+      {
+        name: "Break Their Ranks!",
+        description: `This ability can only target allies who have enemies adjacent to them.
+Until the start of the Officer's next turn all melee attacks made by the target deal additional damage equal to (Officer's FEL bonus/ 2) multiplied by the number of enemies adjacent to the target when this ability is used.
+If the target is under the effect of Voice of Command, they immediately make an attack of opportunity against an adjacent enemy, targeting the one with the lowest remaining wounds.`,
+        groupId: 30,
+        talentTypeId: 1,
+        createdAt: new Date(),
+      },
+      {
+        name: "Move, Move, Move!",
+        description: `The Officer immediately grants an ally additional Movement points equal to FEL bonus.
+If the target is under the effect of Voice of Command, it ignores attacks of opportunity until the end of the Officer's turn.`,
+        groupId: 30,
+        talentTypeId: 1,
+        createdAt: new Date(),
+      },
+
+      {
+        name: "Take Aim!",
+        description: `The target's next attack will ignore cover and will have double the effective distance.
+If the target is under the effect of voice of command, this attack will ignore enemy dodge. Additionally, the damage from this attack can't be reduced below (30 + 3 x FEL bonus)% for any reason.`,
+        groupId: 30,
+        talentTypeId: 1,
+        createdAt: new Date(),
+      },
+
+
+
+
 
 
       // Common Talents
@@ -172,7 +218,7 @@ the roll. Using a non-damaging ability on an enemy grants them a 20% chance to f
     ];
 
 
-  const batchSize = 5;
+  const batchSize = 15;
   for (let i = 0; i < talents.length; i += batchSize) {
     const batch = talents.slice(i, i + batchSize);
     if (batch.length) {

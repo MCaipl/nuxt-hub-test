@@ -2,7 +2,11 @@
 const { status, data } = await useLazyFetch("/api/talents");
 
 const columns = [
-  {
+{
+    accessorKey: "id",
+    header: "#",
+  },
+{
     accessorKey: "name",
     header: "Name",
   },
@@ -25,7 +29,14 @@ const columns = [
 
   <UTable :data="data" :columns="columns" class="flex-1" >
     <template #name-cell="{ row }">
-      <Talent :type="row.getValue('talentTypeName')" :name="row.getValue('name')" />
+
+      <NuxtLink
+        :to="`/talents/${row.getValue('id')}`"
+        class="text-highlighted hover:underline"
+      >{{ row.getValue("name") }}</NuxtLink>
+
+
+      <!-- <Talent :type="row.getValue('talentTypeName')" :name="row.getValue('name')" /> -->
     </template>
     <template #description-cell="{ row }">
       <p class="whitespace-normal break-normal ">
