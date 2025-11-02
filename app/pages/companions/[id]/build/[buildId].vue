@@ -126,15 +126,15 @@ const active = ref('0')
                   <td class="w-32 text-sm text-muted whitespace-nowrap">Armor</td>
                   <td class="p-4 text-sm text-muted whitespace-nowrap">Invincible Onsalught Armour / Sanguine Judgement / Adherent of Mainkind</td>
                 </tr>
-               <!--  <tr>
-                  <td class="w-32">Necklace</td>
-                  <td class="p-4">Invigorating Resolve / Solid Shield Enarmes</td>
+                <tr>
+                  <td class="w-32 text-sm text-muted whitespace-nowrap">Necklace</td>
+                  <td class="p-4 text-sm text-muted whitespace-nowrap">Invigorating Resolve / Solid Shield Enarmes</td>
                 </tr>
                 <tr>
-                  <td class="w-32">Trinket 1</td>
-                  <td class="p-4"> - </td>
+                  <td class="w-32 text-sm text-muted whitespace-nowrap">Trinket 1</td>
+                  <td class="p-4 text-sm text-muted whitespace-nowrap"> - </td>
                 </tr>
-                <tr>
+                <!-- <tr>
                   <td class="w-32">Trinket 2</td>
                   <td class="p-4"> - </td>
                 </tr>

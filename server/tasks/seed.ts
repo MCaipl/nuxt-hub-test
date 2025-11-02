@@ -1,5 +1,6 @@
 import seedCompanions from "./seeds/companions";
 import seedGroups from "./seeds/groups";
+import seedTalents from "./seeds/talents";
 
 export default defineTask({
   meta: {
@@ -188,25 +189,10 @@ const drizzle = useDrizzle() as unknown as any;
 
 
     await seedGroups(useDrizzle());
-
     await seedCompanions(useDrizzle());
+    await seedTalents(useDrizzle());
 
 
-    const talents = [
-      {
-        name: "Brutal Hunter",
-        description: "Increases damage dealt to beasts by 20%.",
-        groupId: 1,
-        createdAt: new Date(),
-      },
-      {
-        name: "Trusty Weapons",
-        description: "Increases damage dealt to beasts by 20%.",
-        groupId: 1,
-        createdAt: new Date(),
-      },
-    ];
-    await useDrizzle().insert(tables.talents).values(talents);
 
 
 
