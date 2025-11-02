@@ -28,13 +28,16 @@ export default async function seedGroups(db: any) {
     { name: "Craftworld Crudarch", createdAt: new Date() },
     { name: "Fenris", createdAt: new Date() },
     { name: "Dark City of Commorragh", createdAt: new Date() }, // 27
+    { name: "Death World", createdAt: new Date() },
 
-
-    { name: "Warrior", createdAt: new Date() }, // 28
+    { name: "Warrior", createdAt: new Date() }, // 29
     { name: "Officer", createdAt: new Date() },
     { name: "Operative", createdAt: new Date() },
     { name: "Soldier", createdAt: new Date() },
     { name: "Blade Dancer", createdAt: new Date() },
+
+    { name: "Common", createdAt: new Date() },
+    { name: "Exemplar", createdAt: new Date() },
 
   ];
 

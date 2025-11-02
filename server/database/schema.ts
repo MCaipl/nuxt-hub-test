@@ -31,8 +31,17 @@ export const groups = sqliteTable("groups", {
   createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
 });
 
+export const talentTypes = sqliteTable("talent_types", {
+  id: integer("id").primaryKey().notNull(),
+  name: text("name").notNull(),
+  createdAt: integer("created_at", { mode: "timestamp" }).notNull(),
+});
+
 export const talents = sqliteTable("talents", {
   id: integer("id").primaryKey().notNull(),
+  talentTypeId: integer("talent_type_id")
+    .notNull()
+    .references(() => talentTypes.id),
   groupId: integer("group_id")
     .notNull()
     .references(() => groups.id),

@@ -7,8 +7,12 @@ const columns = [
     header: "Name",
   },
   {
-    accessorKey: "type",
+    accessorKey: "talentTypeName",
     header: "Type",
+  },
+  {
+    accessorKey: "groupName",
+    header: "Group",
   },
   {
     accessorKey: "description",
@@ -20,6 +24,9 @@ const columns = [
   <div>
 
   <UTable :data="data" :columns="columns" class="flex-1" >
+    <template #name-cell="{ row }">
+      <Talent :type="row.getValue('talentTypeName')" :name="row.getValue('name')" />
+    </template>
     <template #description-cell="{ row }">
       <p class="whitespace-normal break-normal ">
         {{ row.getValue("description") }}

@@ -188,6 +188,37 @@ const drizzle = useDrizzle() as unknown as any;
     await useDrizzle().insert(tables.items).values(items);
 
 
+
+
+
+    await useDrizzle().insert(tables.talentTypes).values([
+      {
+        name: "Ability",
+        createdAt: new Date(),
+      },
+      {
+        name: "Skill",
+        createdAt: new Date(),
+      },
+      {
+        name: "Talent",
+        createdAt: new Date(),
+      },
+      {
+        name: "Common Talent",
+        createdAt: new Date(),
+      },
+      {
+        name: "Heroic Talent",
+        createdAt: new Date(),
+      },
+      {
+        name: "Stats",
+        createdAt: new Date(),
+      },
+    ]);
+
+
     await seedGroups(useDrizzle());
     await seedCompanions(useDrizzle());
     await seedTalents(useDrizzle());
