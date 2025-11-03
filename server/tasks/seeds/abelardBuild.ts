@@ -18,10 +18,48 @@ const basicLevels = [
 
 const advancedLevels = [
   [5],        // level 1: talentId only
+  [5],        // level 2: talentId only
+  [446], // level 3: talentId + additionalTalentId
+  [209, 139], // level 4: talentId + additionalTalentId
+  [210, 67], // level 5: talentId + additionalTalentId
+  [449, 67], // level 6: talentId + additionalTalentId
+  [212, 142], // level 7: talentId + additionalTalentId
+  [214, 143], // level 8: talentId + additionalTalentId
+  [215, 144], // level 9: talentId + additionalTalentId
+  [218, 145], // level 10: talentId + additionalTalentId
+  [219, 146], // level 11: talentId + additionalTalentId
+  [220, 147], // level 12: talentId + additionalTalentId
+  [221, 148], // level 13: talentId + additionalTalentId
+  [222, 149], // level 14: talentId + additionalTalentId
+  [224],      // level 15
+  [225],      // level 16
+  [226],      // level 17
+  [227],      // level 18
+  [228],      // level 19
+  [229],      // level 20
 ];
 
 const exemplarLevels = [
-  [5],        // level 1: talentId only
+  [483, 204],        // level 1: talentId only
+  [43, 461],        // level 2: talentId only
+  [71, 135], // level 3: talentId + additionalTalentId
+  [5, 43], // level 4: talentId + additionalTalentId
+  [480, 467], // level 5: talentId + additionalTalentId
+  [67, 211], // level 6: talentId + additionalTalentId
+  [212, 142], // level 7: talentId + additionalTalentId
+  [214, 143], // level 8: talentId + additionalTalentId
+  [215, 144], // level 9: talentId + additionalTalentId
+  [218, 145], // level 10: talentId + additionalTalentId
+  [219, 146], // level 11: talentId + additionalTalentId
+  [220, 147], // level 12: talentId + additionalTalentId
+  [221, 148], // level 13: talentId + additionalTalentId
+  [222, 149], // level 14: talentId + additionalTalentId
+  [224],      // level 15
+  [225],      // level 16
+  [226],      // level 17
+  [227],      // level 18
+  [485, 452],      // level 19
+  [229],      // level 20
 ];
 
 const buildId = 1;
