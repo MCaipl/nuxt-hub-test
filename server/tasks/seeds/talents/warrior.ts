@@ -1,4 +1,11 @@
 export const warrior = [
+    {
+    name: "Charge",
+    description: `Until the warriors next turn, they gain (TGH \\2) Deflection and (10 + level \\6) temporary Wounds`,
+    groupId: 29,
+    talentTypeId: 1,
+    createdAt: new Date(),
+  },
   {
     name: "Endure",
     description: `Until the warriors next turn, they gain (TGH \\2) Deflection and (10 + level \\6) temporary Wounds`,
