@@ -19,9 +19,11 @@ export default eventHandler(async ({ context }) => {
 
       archetypeTalentId: archetypeTalent.id,
       archetypeTalentName: archetypeTalent.name,
+      archetypeTalentType: archetypeTalent.talentTypeId,
 
       additionalTalentId: additionalTalent.id,
       additionalTalentName: additionalTalent.name,
+      additionalTalentType: additionalTalent.talentTypeId,
     })
     .from(tables.builds)
     .leftJoin(tables.buildLevels, eq(tables.builds.id, tables.buildLevels.buildId))
@@ -47,10 +49,10 @@ export default eventHandler(async ({ context }) => {
           ?  row.groupName
           : null,
         talent: row.archetypeTalentId
-          ? { name: row.archetypeTalentName }
+          ? { name: row.archetypeTalentName, type: row.archetypeTalentType }
           : null,
         additionalTalent: row.additionalTalentId
-          ? { id: row.additionalTalentId, name: row.additionalTalentName }
+          ? { name: row.additionalTalentName, type: row.additionalTalentType  }
           : null,
       })),
   };

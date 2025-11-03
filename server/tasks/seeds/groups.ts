@@ -39,6 +39,15 @@ export default async function seedGroups(db: any) {
     { name: "Common", createdAt: new Date() },
     { name: "Exemplar", createdAt: new Date() },
 
+    { name: "Assassin", createdAt: new Date() },
+    { name: "Bounty Hunter", createdAt: new Date() },
+    { name: "Master Tactician", createdAt: new Date() },
+    { name: "Grand Strategist", createdAt: new Date() },
+    { name: "Arch-Militant", createdAt: new Date() },
+    { name: "Vanguard", createdAt: new Date() },
+    { name: "Executioner", createdAt: new Date() },
+    { name: "Overseer", createdAt: new Date() },
+
   ];
 
   await db.insert(tables.groups).values(groups);

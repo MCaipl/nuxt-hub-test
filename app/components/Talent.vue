@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 
 const props = defineProps<{
-  type: string;
+  type?: string | number;
   name: string
 }>();
 
@@ -9,14 +9,21 @@ const color = computed(() => {
 
   switch (props.type) {
     case 'Ability':
+    case 1:
       return 'primary'
     case 'Skill':
+    case 2:
       return 'success'
     case 'Heroic Action':
+    case 5:
       return 'warning'
     case 'Talent':
     case 'Common Talent':
+    case 3:
+    case 4:
       return 'info'
+    case 6:
+      return 'error'
     default:
       return 'neutral'
   }

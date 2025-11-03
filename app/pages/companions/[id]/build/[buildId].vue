@@ -31,46 +31,71 @@ const stats = computed(() => [
   { field: 'Recruited in', value: data.value?.actName || '' },
 ]);
 
-const foo = [
-  [{ name: 'Charge', type: 'Ability' }],
-  [{ name: 'Medicae', type: 'Skill'}],
-  [{ name: 'Endure', type: 'Ability' }],
-  [{ name: 'Daring Breach', type: 'Heroic Action' },{ name: 'Defense Stance', type: 'Talent' }],
-  [{ name: 'Thick Skin', type: 'Talent' }, { name: 'Weapon Skill', type: 'Stats'}],
-  [{ name: 'Taunting Scream', type: 'Ability' }, { name: 'Athletics', type: 'Skill'}],
-  [{ name: 'Weapon Skill', type: 'Stats'}, { name: 'Fleet Combat Training', type: 'Common Talent'}],
-  [{ name: 'Athletics', type: 'Skill'}, { name: 'Hardened Scars', type: 'Talent' }],
-  [{ name: 'Daring Breach II', type: 'Heroic Action' }],
-  [{ name: 'Impetus', type: 'Talent'}, { name: 'Toughness', type: 'Stats' }],
-  [{ name: 'Reckless Strike', type: 'Ability'}, { name: 'Get off me!', type: 'Common Talent' }],
-  [{ name: 'Toughness', type: 'Stats'}, { name: 'Carouse', type: 'Skill' }],
-  [{ name: 'Ramming Speed	', type: 'Talent'}, { name: 'Carouse', type: 'Skill' }],
-  [{ name: 'Perception', type: 'Stats'}, { name: 'Dual-Weapon Combat	', type: 'Common Talent' }],
-  [{ name: 'Daring Breach IV', type: 'Heroic Action' }],
-]
+// const foo = [
+//   [{ name: 'Charge', type: 'Ability' }],
+//   [{ name: 'Medicae', type: 'Skill'}],
+//   [{ name: 'Endure', type: 'Ability' }],
+//   [{ name: 'Daring Breach', type: 'Heroic Action' },{ name: 'Defense Stance', type: 'Talent' }],
+//   [{ name: 'Thick Skin', type: 'Talent' }, { name: 'Weapon Skill', type: 'Stats'}],
+//   [{ name: 'Taunting Scream', type: 'Ability' }, { name: 'Athletics', type: 'Skill'}],
+//   [{ name: 'Weapon Skill', type: 'Stats'}, { name: 'Fleet Combat Training', type: 'Common Talent'}],
+//   [{ name: 'Athletics', type: 'Skill'}, { name: 'Hardened Scars', type: 'Talent' }],
+//   [{ name: 'Daring Breach II', type: 'Heroic Action' }],
+//   [{ name: 'Impetus', type: 'Talent'}, { name: 'Toughness', type: 'Stats' }],
+//   [{ name: 'Reckless Strike', type: 'Ability'}, { name: 'Get off me!', type: 'Common Talent' }],
+//   [{ name: 'Toughness', type: 'Stats'}, { name: 'Carouse', type: 'Skill' }],
+//   [{ name: 'Ramming Speed	', type: 'Talent'}, { name: 'Carouse', type: 'Skill' }],
+//   [{ name: 'Perception', type: 'Stats'}, { name: 'Dual-Weapon Combat	', type: 'Common Talent' }],
+//   [{ name: 'Daring Breach IV', type: 'Heroic Action' }],
+// ]
 
-const bar = [
-  [{ name: 'Versitility', type: 'Ability' }],
-  [{ name: 'Wildfire', type: 'Ability' }],
-  [{ name: 'Always Ready', type: 'Talent' }],
-  [{ name: 'Steady Superiority', type: 'Heroic Action' }],
-  [{ name: 'AP+1', type: 'none' },{ name: 'Weapon Skill', type: 'Stats'}],
-  [{ name: 'Dependable', type: 'Talent' },{ name: 'Weapon Skill', type: 'Stats'}],
-]
+// const bar = [
+//   [{ name: 'Versitility', type: 'Ability' }],
+//   [{ name: 'Wildfire', type: 'Ability' }],
+//   [{ name: 'Always Ready', type: 'Talent' }],
+//   [{ name: 'Steady Superiority', type: 'Heroic Action' }],
+//   [{ name: 'AP+1', type: 'none' },{ name: 'Weapon Skill', type: 'Stats'}],
+//   [{ name: 'Dependable', type: 'Talent' },{ name: 'Weapon Skill', type: 'Stats'}],
+// ]
 
-const baz = [
-  [{ name: 'Charge', type: 'Ability' }],
-]
+// const baz = [
+//   [{ name: 'Charge', type: 'Ability' }],
+// ]
 
-const itemss: AccordionItem[] = [
-  { label: 'Soldier', levels: foo  },
-  { label: 'Arch-Militant', levels: bar },
-  { label: 'Exemplar', levels: baz },
-]
+// const itemss: AccordionItem[] = [
+//   { label: 'Soldier', levels: foo  },
+//   { label: 'Arch-Militant', levels: bar },
+//   { label: 'Exemplar', levels: baz },
+// ]
 
+
+
+const groupedLevels = computed(() => {
+  const map = new Map();
+
+  if (!buildData?.value?.levels) {
+    return [];
+  }
+
+  for (const item of buildData?.value?.levels) {
+    if (!map.has(item.archetype)) {
+      map.set(item.archetype, {
+        label: item.archetype,
+        levels: [],
+      });
+    }
+
+    const talents = [item.talent];
+    if (item.additionalTalent) {
+      talents.push(item.additionalTalent);
+    }
+
+    map.get(item.archetype).levels.push(talents);
+  }
+
+  return Array.from(map.values());
+});
 const active = ref('0')
-
-
 
 </script>
 <template>
@@ -86,9 +111,7 @@ const active = ref('0')
         <div class="sm:col-span-2 ">
           <h2 class="relative text-2xl text-highlighted font-bold mt-2 mb-6">Build Breakdown</h2>
 
-          <pre>{{ buildData }}</pre>
-
-          <UAccordion :items="itemss" v-model="active" >
+          <UAccordion :items="groupedLevels" v-model="active" >
             <template #body="{ item }">
               <table class="w-full table-auto ">
                 <tbody class="[&>tr]:data-[selectable=true]:hover:bg-elevated/50 [&>tr]:data-[selectable=true]:focus-visible:outline-primary divide-y divide-default">

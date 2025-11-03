@@ -1,6 +1,7 @@
 import seedCompanions from "./seeds/companions";
 import seedGroups from "./seeds/groups";
 import seedTalents from "./seeds/talents";
+import seedAbelard from "./seeds/abelardBuild";
 
 export default defineTask({
   meta: {
@@ -213,7 +214,7 @@ const drizzle = useDrizzle() as unknown as any;
         createdAt: new Date(),
       },
       {
-        name: "Heroic Talent",
+        name: "Heroic Action",
         createdAt: new Date(),
       },
       {
@@ -267,31 +268,9 @@ const drizzle = useDrizzle() as unknown as any;
       },
     ]);
 
-    await useDrizzle().insert(tables.buildLevels).values([
-      {
-        buildId: 1,
-        level: 1,
-        archeTypeId: 29,
-        talentId: 1,
-        createdAt: new Date(),
-      },
-      {
-        buildId: 1,
-        level: 2,
-        archeTypeId: 29,
-        talentId: 2,
-        createdAt: new Date(),
-      },
-      {
-        buildId: 1,
-        level: 3,
-        archeTypeId: 29,
-        talentId: 3,
-        additonalTalentId: 4,
-        createdAt: new Date(),
-      }
-  ]);
 
+
+    await seedAbelard(useDrizzle());
 
 
 
